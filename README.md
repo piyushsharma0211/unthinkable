@@ -5,9 +5,7 @@ This project is a visual product search engine that allows users to upload an im
 
 ---
 
-## Demo Video
 
-[Watch the demo video here](https://github.com/user-attachments/assets/5a613ee7-8b08-4546-9ffe-5f65f10113ed)
 
 ---
 
@@ -81,7 +79,7 @@ This project is a visual product search engine that allows users to upload an im
 
 ## Project Structure
 
-````
+
 
 ecommerce-visual-search/
 ├── main.py                # Main Streamlit app script
@@ -90,7 +88,7 @@ ecommerce-visual-search/
 ├── README.md              # This documentation file
 └── LICENSE                # Project license
 
-```
+
 
 ---
 
@@ -148,5 +146,4 @@ Questions or feedback? Reach out via email at your.email@example.com or connect 
 *Built with ❤️ using Streamlit and OpenAI CLIP*
 ```
 
----
 
