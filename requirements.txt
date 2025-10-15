@@ -4,7 +4,7 @@ torchvision==0.23.0
 torchaudio==2.8.0
 sentence-transformers==2.2.2
 huggingface-hub==0.16.4
-pillow==10.2.0
+pillow==pillow==9.5.0
 numpy==1.26.4
 pandas==2.2.2
 scikit-learn==1.5.1
