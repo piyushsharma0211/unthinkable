@@ -26,8 +26,8 @@ This project is a visual product search engine that allows users to upload an im
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/nasirovsh/ecommerce-visual-search.git
-    cd ecommerce-visual-search
+    git clone https://github.com/piyushsharma0211/unthinkable.git
+    cd unthinkable
     ```
 
 2. **Create and activate a virtual environment:**
@@ -76,7 +76,7 @@ This project is a visual product search engine that allows users to upload an im
 ## Project Structure
 
 
-
+```
 ecommerce-visual-search/
 ├── main.py                # Main Streamlit app script
 ├── db/                    # Folder containing product images
@@ -84,7 +84,7 @@ ecommerce-visual-search/
 ├── README.md              # This documentation file
 └── LICENSE                # Project license
 
-
+```
 
 ---
 
@@ -135,7 +135,7 @@ MIT License © Piyush Kumar
 
 ## Contact
 
-Questions or feedback? Reach out via email at your.email@example.com or connect on [LinkedIn](https://www.linkedin.com/in/piyush-kumar-61749025a/).
+Questions or feedback? Reach out via  or connect on [LinkedIn](https://www.linkedin.com/in/piyush-kumar-61749025a/).
 
 ---
 
