@@ -5,10 +5,6 @@ This project is a visual product search engine that allows users to upload an im
 
 ---
 
-
-
----
-
 ## Features
 
 - **Image Upload & URL Input**: Upload images directly or paste image URLs.
@@ -133,13 +129,13 @@ ecommerce-visual-search/
 
 ## License
 
-MIT License © Your Name
+MIT License © Piyush Kumar 
 
 ---
 
 ## Contact
 
-Questions or feedback? Reach out via email at your.email@example.com or connect on [LinkedIn](https://linkedin.com/in/yourprofile).
+Questions or feedback? Reach out via email at your.email@example.com or connect on [LinkedIn](https://www.linkedin.com/in/piyush-kumar-61749025a/).
 
 ---
 
