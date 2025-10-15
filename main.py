@@ -28,216 +28,158 @@ st.set_page_config(
 def load_css():
     st.markdown("""
     <style>
-    /* Main background */
-    .main {
-        background-color: #FFFFFF;
-        padding: 2rem;
-        color: #000000;
+    body {
+        background: #f4f7f9;
+        font-family: 'Poppins', sans-serif;
     }
-    
-    /* Header styling */
+
+    .main {
+        padding: 2rem;
+        color: #222222;
+    }
+
     .main-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-size: 3.5rem;
+        font-weight: 800;
+        text-align: center;
+        color: #1a202c;
+        background: linear-gradient(to right, #f43f5e, #6366f1);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-align: center;
-        font-size: 4rem;
-        font-weight: 800;
         margin-bottom: 0.5rem;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     .sub-header {
         text-align: center;
-        color: #000000;
         font-size: 1.2rem;
-        margin-bottom: 3rem;
-        font-weight: 300;
-    }
-    
-    /* Upload section styling */
-    .upload-container {
-        background: linear-gradient(145deg, #f0f2f6, #ffffff);
-        padding: 2rem;
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
+        font-weight: 400;
+        color: #4a5568;
         margin-bottom: 2rem;
-        border: 1px solid #e8ecef;
-        color: #000000;
     }
-    
+
+    .upload-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        margin-bottom: 2rem;
+    }
+
     .upload-header {
-        color: #000000;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 600;
-        margin-bottom: 1rem;
+        color: #2d3748;
         text-align: center;
+        margin-bottom: 1rem;
     }
-    
-    /* Success message styling */
+
     .success-message {
-        background: linear-gradient(135deg, #48bb78, #38a169);
+        background: #10b981;
         color: white;
         padding: 1rem;
         border-radius: 10px;
         text-align: center;
         font-weight: 500;
         margin: 1rem 0;
-        animation: fadeIn 0.5s ease-in;
     }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Find similar button */
+
     .find-button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(to right, #6366f1, #3b82f6);
         color: white;
         padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 12px;
         border: none;
-        border-radius: 15px;
-        font-size: 1.2rem;
-        font-weight: 600;
         cursor: pointer;
-        width: 100%;
-        margin: 1rem 0;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        width: 100%;
+        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
     }
-    
+
     .find-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        transform: scale(1.03);
     }
-    
-    /* Query image container */
+
     .query-image-container {
-        background: white;
+        background: #fff;
         padding: 1.5rem;
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
         text-align: center;
-        margin: 2rem 0;
-        border: 2px solid #e8ecef;
-        color: #000000;
+        border: 1px solid #e5e7eb;
+        margin-top: 1rem;
     }
-    
-    /* Results styling */
+
     .results-header {
-        color: #000000;
         font-size: 2rem;
         font-weight: 700;
+        color: #1a202c;
         text-align: center;
-        margin: 2rem 0;
-        position: relative;
+        margin: 2rem 0 1rem;
     }
-    
-    .results-header::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 3px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 2px;
-    }
-    
-    /* Product card styling */
+
     .product-card {
         background: white;
-        padding: 1.5rem;
-        border-radius: 20px;
-        margin-bottom: 2rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        border: 1px solid #e8ecef;
-        transition: all 0.3s ease;
-        height: 100%;
-        color: #000000;
-    }
-    
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-    }
-    
-    .product-image {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
+        padding: 1.2rem;
         border-radius: 15px;
-        margin-bottom: 1rem;
-        border: 2px solid #f7fafc;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+        text-align: center;
+        transition: 0.3s ease;
     }
-    
+
+    .product-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .product-image {
+        border-radius: 12px;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+
     .similarity-score {
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: #3b82f6;
         color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        font-weight: 600;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
         font-size: 0.9rem;
         display: inline-block;
-        margin-top: 0.5rem;
+        font-weight: 500;
     }
-    
-    /* Divider styling */
+
     .custom-divider {
         height: 2px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(to right, #f43f5e, #6366f1);
         border: none;
-        border-radius: 1px;
         margin: 2rem 0;
     }
-    
-    /* Streamlit specific overrides */
+
     .stFileUploader > div > div > div > div {
-        background-color: #f8fafc;
-        border: 2px dashed #cbd5e0;
+        background-color: #f9fafb;
+        border: 2px dashed #cbd5e1;
         border-radius: 10px;
-        padding: 2rem;
+        padding: 1.5rem;
         color: #000000;
     }
-    
-    .stTextInput > div > div > input {
-        background-color: #f8fafc;
-        border: 2px solid #e2e8f0;
-        border-radius: 10px;
-        padding: 0.75rem;
-        color: #000000;
-    }
-    
-    .stSlider > div > div > div > div {
-        background-color: #667eea;
-    }
-    
-    /* Global text color override */
-    .stMarkdown, .stText, p, div, span, label {
-        color: #000000 !important;
-    }
-    
-    /* Streamlit components text color */
-    .stSelectbox label, .stFileUploader label, .stTextInput label, .stSlider label {
-        color: #000000 !important;
-    }
-    
-    /* Footer text color */
+
     .footer-text {
-        color: #000000;
+        color: #718096;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 2rem;
     }
-    
+
     /* Hide Streamlit branding */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-    
     </style>
     """, unsafe_allow_html=True)
+
 
 
 # ===============================
@@ -327,8 +269,8 @@ def main():
     
     # Header section
     st.markdown("""
-        <h1 class="main-header">🛍️ Visual Product Matcher</h1>
-        <p class="sub-header">Upload or paste a product image link to find visually similar items from your database</p>
+        <h1 class="main-header"> Visual Product Matcher </h1>
+        <p class="sub-header">Find matching fashion & product styles by simply uploading an image. Powered by AI magic.</p>
     """, unsafe_allow_html=True)
 
     # Load model
@@ -462,7 +404,7 @@ def main():
     st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
     st.markdown("""
         <div style="text-align: center; margin-top: 2rem;" class="footer-text">
-            <p style="color: #000000;">🚀 Powered by CLIP Vision Transformer | Built with ❤️ using Streamlit</p>
+            <p style="color: #000000;">🚀 Created by <strong>Piyush Kumar</strong> 2025Powered by CLIP Vision Transformer | Built with ❤️ using Streamlit</p>
         </div>
     """, unsafe_allow_html=True)
 
