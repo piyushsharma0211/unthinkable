@@ -1,112 +1,152 @@
-# Image Search Engine
 
-This project is an image search engine that allows users to upload an image and find similar images from a preloaded database. It uses the ResNet50 model for feature extraction and cosine similarity for finding similar images.
+# 🛍️ Visual Product Matcher
 
-# Demo Video
+This project is a visual product search engine that allows users to upload an image or paste an image URL to find visually similar products from a preloaded database. It uses OpenAI's CLIP Vision Transformer (ViT-B-32) model for feature extraction and cosine similarity for matching images.
 
-https://github.com/user-attachments/assets/5a613ee7-8b08-4546-9ffe-5f65f10113ed
+---
+
+## Demo Video
+
+[Watch the demo video here](https://github.com/user-attachments/assets/5a613ee7-8b08-4546-9ffe-5f65f10113ed)
+
+---
 
 ## Features
 
-- **Image Upload**: Users can upload an image in JPG format.
-- **Feature Extraction**: Extracts features from the uploaded image using a pre-trained ResNet50 model.
-- **Similarity Search**: Finds similar images from the database using cosine similarity.
-- **Adjustable Parameters**: Users can adjust the similarity threshold and the number of similar images to display.
-- **Caching**: Utilizes Streamlit's caching for improved performance.
+- **Image Upload & URL Input**: Upload images directly or paste image URLs.
+- **Feature Extraction**: Uses the CLIP ViT-B-32 model to extract rich image embeddings.
+- **Similarity Search**: Finds and ranks similar product images from the database using cosine similarity.
+- **Adjustable Parameters**: Customize the number of similar products to display.
+- **Performance Optimizations**: Caching with Streamlit for faster subsequent queries.
+
+---
 
 ## Prerequisites
 
-- Python 3.10
+- Python 3.10 or higher
 - pip (Python package installer)
+
+---
 
 ## Installation
 
-1. **Clone the repository**:
-    ```sh
+1. **Clone the repository:**
+    ```bash
     git clone https://github.com/nasirovsh/ecommerce-visual-search.git
     cd ecommerce-visual-search
     ```
 
-2. **Create a virtual environment**:
-    ```sh
+2. **Create and activate a virtual environment:**
+    ```bash
     python3 -m venv .venv
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    source .venv/bin/activate    # Windows: `.venv\Scripts\activate`
     ```
 
-3. **Install the required packages**:
-    ```sh
+3. **Install dependencies:**
+    ```bash
     pip install -r requirements.txt
     ```
 
-   For better performance, install the Watchdog module:
-      
-      For macOS users:
-      ```sh
+4. *(Optional)* For better file-watching performance, install watchdog:
+    - macOS:
+      ```bash
       xcode-select --install
       pip install watchdog
       ```
-      For Windows users:
-      ```sh
+    - Windows:
+      ```bash
       pip install watchdog
       ```
 
+---
+
 ## Usage
 
-1. **Prepare the image database**:
-   - Place your database images in the `db/` directory.
-   - Ensure all images are in JPG format.
-   - over 60+ products images in the dataset
+1. **Prepare your product image database:**
+   - Place product images (JPG/PNG) in the `db/` directory.
+   - Make sure images are clear and representative of your products.
+   - The demo uses 60+ product images.
 
-2. **Run the Streamlit app**:
-   
-   - Run in terminal:
-      ```sh
-      streamlit run main.py
-      ```
-   
-   - Run/Debug in PyCharm:
-   
-      Go to Run/Debug Configurations and add a new configuration for Streamlit Server. Set module name to `streamlit` and parameters to `run main.py`.
-   
-      Click on the Run button to start the Streamlit server.
+2. **Run the Streamlit app:**
+    ```bash
+    streamlit run main.py
+    ```
 
-   - Open the browser and go to the URL displayed in the terminal (usually `http://localhost:8501`).
+3. **Interact with the app:**
+   - Upload a product image or paste its URL.
+   - Choose how many similar products to display.
+   - Click **Find Similar Products** to view results.
 
-3. **Use the app**:
-   - Upload an image: Use the file uploader to select an image in JPG format.
-   - Adjust parameters: Use the sliders to set the similarity threshold and the number of similar images to display.
-   - Find similar images: Click the "Find Similar Images" button to search for similar images in the database.
+---
 
 ## Project Structure
 
-- `main.py`: The main script that runs the Streamlit app.
-- `requirements.txt`: Lists the dependencies required for the project.
-- `db/`: Directory containing the image database.
-- `README.md`: This file, containing project documentation.
-- `LICENSE`: The license file for the project.
+````
+
+ecommerce-visual-search/
+├── main.py                # Main Streamlit app script
+├── db/                    # Folder containing product images
+├── requirements.txt       # Python dependencies
+├── README.md              # This documentation file
+└── LICENSE                # Project license
+
+```
+
+---
 
 ## Dependencies
 
-- `pillow == 10.3.0`: Python Imaging Library for opening, manipulating, and saving images.
-- `tensorflow == 2.16.1`: Open-source machine learning framework used for the ResNet50 model.
-- `streamlit == 1.37.1`: Framework for building interactive web applications.
-- `scikit-learn == 1.5.1`: Machine learning library used for cosine similarity calculation.
-- `certifi == 2024.7.4`: Provides Mozilla's carefully curated collection of Root Certificates.
+- `streamlit` — Web app framework
+- `torch` — PyTorch for model inference
+- `sentence-transformers` — For CLIP model and embedding extraction
+- `pillow` — Image processing
+- `numpy` — Numerical operations
+- `scikit-learn` — For cosine similarity calculations
+- `certifi` — SSL certificates
+
+*(See `requirements.txt` for exact versions.)*
+
+---
 
 ## How It Works
 
-1. The app loads a pre-trained ResNet50 model on startup.
-2. When a user uploads an image, the app extracts features using the ResNet50 model.
-3. These features are compared to the pre-extracted features of images in the database using cosine similarity.
-4. The app displays the most similar images based on the user-defined threshold and number of results.
+1. On startup, the CLIP ViT-B-32 model loads and precomputes embeddings for all database images.
+2. When a user uploads an image or submits a URL, the app extracts its feature embedding.
+3. Cosine similarity scores are computed between the query embedding and all database embeddings.
+4. The app displays the top-N visually similar products based on these scores.
+
+---
 
 ## Troubleshooting
 
-- If you encounter memory issues, try reducing the number of images in your database or upgrading your hardware.
-- Ensure your uploaded images are in JPG format and are not corrupted.
-- If the app is slow, it might be due to the initial loading of the database. Subsequent runs should be faster due to caching.
+- Ensure your images are in supported formats (JPG/PNG) and not corrupted.
+- If the app runs slowly initially, wait for caching to complete; subsequent runs will be faster.
+- If memory issues occur, reduce the number of database images or increase available RAM.
+
+---
 
 ## Acknowledgements
 
-- The ResNet50 model is provided by TensorFlow and was originally developed by Microsoft Research.
-- Thanks to the Streamlit team for their excellent framework for building data applications.
+- OpenAI's CLIP model for powerful image embeddings.
+- Streamlit for an amazing app development framework.
+- Thanks to the community for open-source resources and inspiration.
+
+---
+
+## License
+
+MIT License © Your Name
+
+---
+
+## Contact
+
+Questions or feedback? Reach out via email at your.email@example.com or connect on [LinkedIn](https://linkedin.com/in/yourprofile).
+
+---
+
+*Built with ❤️ using Streamlit and OpenAI CLIP*
+```
+
+---
+
