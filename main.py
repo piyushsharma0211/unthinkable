@@ -10,6 +10,19 @@ import urllib.request
 import base64
 
 
+EMB_PATH = "db/image_embeddings.npy"
+PATHS_PATH = "db/image_paths.npy"
+
+if os.path.exists(EMB_PATH) and os.path.exists(PATHS_PATH):
+    db_embeds = np.load(EMB_PATH)
+    db_paths = np.load(PATHS_PATH, allow_pickle=True)
+    print(f"Loaded {len(db_paths)} precomputed embeddings")
+else:
+    db_embeds = None
+    db_paths = None
+    print("No precomputed embeddings found; will compute at runtime")
+
+
 # ===============================
 # CONFIG
 # ===============================
